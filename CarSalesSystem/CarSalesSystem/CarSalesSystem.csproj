@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{012AF4CC-E195-4CD6-BED5-3BA60CFF1289}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CarSalesSystem</RootNamespace>
+    <AssemblyName>CarSalesSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CsvHelper, Version=15.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.15.0.5\lib\net47\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Car.cs" />
+    <Compile Include="FileData.cs" />
+    <Compile Include="FillingAd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FillingAd.Designer.cs">
+      <DependentUpon>FillingAd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditMyAd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditMyAd.Designer.cs">
+      <DependentUpon>FormEditMyAd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFavCars.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFavCars.Designer.cs">
+      <DependentUpon>FormFavCars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMyAds.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMyAds.Designer.cs">
+      <DependentUpon>FormMyAds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSendDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSendDetail.Designer.cs">
+      <DependentUpon>FormSendDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStatisticAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStatisticAdmin.Designer.cs">
+      <DependentUpon>FormStatisticAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListOfAdsFiltration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListOfAdsFiltration.Designer.cs">
+      <DependentUpon>ListOfAdsFiltration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListOfAds_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListOfAds_Admin.Designer.cs">
+      <DependentUpon>ListOfAds_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListOfAds_Guest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListOfAds_Guest.Designer.cs">
+      <DependentUpon>ListOfAds_Guest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListOfAds_UserLogged.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListOfAds_UserLogged.Designer.cs">
+      <DependentUpon>ListOfAds_UserLogged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage_AdminLogged.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainPage_AdminLogged.Designer.cs">
+      <DependentUpon>MainPage_AdminLogged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage_Guest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainPage_Guest.Designer.cs">
+      <DependentUpon>MainPage_Guest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage_UserLogged.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainPage_UserLogged.Designer.cs">
+      <DependentUpon>MainPage_UserLogged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004211227170_InitialCreate.cs" />
+    <Compile Include="Migrations\202004211227170_InitialCreate.designer.cs">
+      <DependentUpon>202004211227170_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004211313456_addCar.cs" />
+    <Compile Include="Migrations\202004211313456_addCar.designer.cs">
+      <DependentUpon>202004211313456_addCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004211820189_addG.cs" />
+    <Compile Include="Migrations\202004211820189_addG.designer.cs">
+      <DependentUpon>202004211820189_addG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004221143077_AddUserProfile.cs" />
+    <Compile Include="Migrations\202004221143077_AddUserProfile.designer.cs">
+      <DependentUpon>202004221143077_AddUserProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004221152464_addProfile.cs" />
+    <Compile Include="Migrations\202004221152464_addProfile.designer.cs">
+      <DependentUpon>202004221152464_addProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004231002308_addn.cs" />
+    <Compile Include="Migrations\202004231002308_addn.designer.cs">
+      <DependentUpon>202004231002308_addn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004231222127_addnew.cs" />
+    <Compile Include="Migrations\202004231222127_addnew.designer.cs">
+      <DependentUpon>202004231222127_addnew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004231229067_addprof.cs" />
+    <Compile Include="Migrations\202004231229067_addprof.designer.cs">
+      <DependentUpon>202004231229067_addprof.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004271153124_newAd.cs" />
+    <Compile Include="Migrations\202004271153124_newAd.designer.cs">
+      <DependentUpon>202004271153124_newAd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004271329250_Car1.cs" />
+    <Compile Include="Migrations\202004271329250_Car1.designer.cs">
+      <DependentUpon>202004271329250_Car1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004271409247_addRe.cs" />
+    <Compile Include="Migrations\202004271409247_addRe.designer.cs">
+      <DependentUpon>202004271409247_addRe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004271946349_AddModel.cs" />
+    <Compile Include="Migrations\202004271946349_AddModel.designer.cs">
+      <DependentUpon>202004271946349_AddModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004301850432_AddAdmin.cs" />
+    <Compile Include="Migrations\202004301850432_AddAdmin.designer.cs">
+      <DependentUpon>202004301850432_AddAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005010858129_addFavoritsCars.cs" />
+    <Compile Include="Migrations\202005010858129_addFavoritsCars.designer.cs">
+      <DependentUpon>202005010858129_addFavoritsCars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005010902152_addStringFavCars.cs" />
+    <Compile Include="Migrations\202005010902152_addStringFavCars.designer.cs">
+      <DependentUpon>202005010902152_addStringFavCars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005011857548_addSaleCar.cs" />
+    <Compile Include="Migrations\202005011857548_addSaleCar.designer.cs">
+      <DependentUpon>202005011857548_addSaleCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005011902191_addSalenew.cs" />
+    <Compile Include="Migrations\202005011902191_addSalenew.designer.cs">
+      <DependentUpon>202005011902191_addSalenew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005020852145_newEr.cs" />
+    <Compile Include="Migrations\202005020852145_newEr.designer.cs">
+      <DependentUpon>202005020852145_newEr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005030851015_addPhoto.cs" />
+    <Compile Include="Migrations\202005030851015_addPhoto.designer.cs">
+      <DependentUpon>202005030851015_addPhoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005030905519_addNewFile.cs" />
+    <Compile Include="Migrations\202005030905519_addNewFile.designer.cs">
+      <DependentUpon>202005030905519_addNewFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005081227371_addFD.cs" />
+    <Compile Include="Migrations\202005081227371_addFD.designer.cs">
+      <DependentUpon>202005081227371_addFD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="MyDbContext.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrationForm.Designer.cs">
+      <DependentUpon>RegistrationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sale.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserProfile.cs" />
+    <EmbeddedResource Include="FillingAd.resx">
+      <DependentUpon>FillingAd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditMyAd.resx">
+      <DependentUpon>FormEditMyAd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFavCars.resx">
+      <DependentUpon>FormFavCars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMyAds.resx">
+      <DependentUpon>FormMyAds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSendDetail.resx">
+      <DependentUpon>FormSendDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStatisticAdmin.resx">
+      <DependentUpon>FormStatisticAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListOfAdsFiltration.resx">
+      <DependentUpon>ListOfAdsFiltration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListOfAds_Admin.resx">
+      <DependentUpon>ListOfAds_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListOfAds_Guest.resx">
+      <DependentUpon>ListOfAds_Guest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListOfAds_UserLogged.resx">
+      <DependentUpon>ListOfAds_UserLogged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPage_AdminLogged.resx">
+      <DependentUpon>MainPage_AdminLogged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPage_Guest.resx">
+      <DependentUpon>MainPage_Guest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPage_UserLogged.resx">
+      <DependentUpon>MainPage_UserLogged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004211227170_InitialCreate.resx">
+      <DependentUpon>202004211227170_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004211313456_addCar.resx">
+      <DependentUpon>202004211313456_addCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004211820189_addG.resx">
+      <DependentUpon>202004211820189_addG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004221143077_AddUserProfile.resx">
+      <DependentUpon>202004221143077_AddUserProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004221152464_addProfile.resx">
+      <DependentUpon>202004221152464_addProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004231002308_addn.resx">
+      <DependentUpon>202004231002308_addn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004231222127_addnew.resx">
+      <DependentUpon>202004231222127_addnew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004231229067_addprof.resx">
+      <DependentUpon>202004231229067_addprof.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004271153124_newAd.resx">
+      <DependentUpon>202004271153124_newAd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004271329250_Car1.resx">
+      <DependentUpon>202004271329250_Car1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004271409247_addRe.resx">
+      <DependentUpon>202004271409247_addRe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004271946349_AddModel.resx">
+      <DependentUpon>202004271946349_AddModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004301850432_AddAdmin.resx">
+      <DependentUpon>202004301850432_AddAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005010858129_addFavoritsCars.resx">
+      <DependentUpon>202005010858129_addFavoritsCars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005010902152_addStringFavCars.resx">
+      <DependentUpon>202005010902152_addStringFavCars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005011857548_addSaleCar.resx">
+      <DependentUpon>202005011857548_addSaleCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005011902191_addSalenew.resx">
+      <DependentUpon>202005011902191_addSalenew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005020852145_newEr.resx">
+      <DependentUpon>202005020852145_newEr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005030851015_addPhoto.resx">
+      <DependentUpon>202005030851015_addPhoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005030905519_addNewFile.resx">
+      <DependentUpon>202005030905519_addNewFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005081227371_addFD.resx">
+      <DependentUpon>202005081227371_addFD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RegistrationForm.resx">
+      <DependentUpon>RegistrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Logo-removebg-preview.png" />
+    <None Include="Resources\Logo.png" />
+    <None Include="Images\Header_Main.png" />
+    <Content Include="Images\Logo.png" />
+    <Content Include="Images\Шапка главной страницы.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+</Project>
